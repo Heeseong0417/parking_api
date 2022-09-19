@@ -17,19 +17,7 @@ def index():
 
     return render_template("Risk_input.html")
 
-@app.route('/Risk_result',methods = ['POST', 'GET'])
-def result():
-   if request.method == 'POST':
 
-      result = request.form
-      result_values = []
-      for key,value in result.items():
-          result_values.append(value)
-      chart = json.dumps(Risk_assessment(result_values),ensure_ascii=False)
-      print(result_values)
-     
-      #return render_template("result.html",result = result, chart = chart)
-      return chart
       
 @app.route('/react_to_flask', methods=['POST','PUT'])
 def react_to_flask():
@@ -65,39 +53,22 @@ def parking_data():
         print(request.get_json)
         parking_api(request.data)
         print("dfdfdfdfd",request.data)
-    
+        return [100,200,300,400,500]
     
    
     if request.method=='PUT':
         print(request.data)
         #parsed_request = json.load(request.data)
         print("dfdfdfdfd",request)
-    return request.data
+        return [600,700,800,900,1000]
 
-@app.route('/senddata')
-def senddata():
-   
-    return ""
 
-@app.route('/user/') 
-def user():
-    return render_template('index.html')
     
 @app.route('/hello')
 def hello():
     return ""
-"""
-def open_browser():
-  webbrowser.open_new('http://0.0.0.0:'+str(port)+'/') 
 
-port=9000
-"""
-"""
-if __name__ == '__main__':
-    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    ssl_context.load_cert_chain(certfile='cert.pem', keyfile='key.pem')
-    app.run(host="0.0.0.0", port="5000",  debug=True ,ssl_context=ssl_context)
-    """
+
 if __name__ == '__main__':
    
-    app.run(host="0.0.0.0", port="5000",  debug=True)
+    app.run(host="0.0.0.0", port="4500",  debug=True)
