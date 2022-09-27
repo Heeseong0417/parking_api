@@ -62,8 +62,39 @@ def parking_data():
         print("dfdfdfdfd",request)
         return [600,700,800,900,1000]
 
-
+@app.route('/parking_chart', methods=['POST','PUT'])
+def parking_data():
+    print("dfdfdfdfd",request.form)
+    if request.method == 'POST':
+        print(request.get_json)
+        parking_api(request.data)
+        print("dfdfdfdfd",request.data)
+        return [10, 15, 7, 20, 14, 12, 10, 20]
     
+   
+    if request.method=='PUT':
+        print(request.data)
+        #parsed_request = json.load(request.data)
+        print("dfdfdfdfd",request)
+        return [20, 45, 28, 80, 99, 43, 50]
+
+@app.route('/parking_risk', methods=['POST','PUT'])
+def parking_data():
+    print("dfdfdfdfd",request.form)
+    if request.method == 'POST':
+        print(request.get_json)
+        parking_api(request.data)
+        print("dfdfdfdfd",request.data)
+        return [77]
+    
+   
+    if request.method=='PUT':
+        print(request.data)
+        #parsed_request = json.load(request.data)
+        print("dfdfdfdfd",request)
+        return [50]
+    
+
 @app.route('/hello')
 def hello():
     return ""
